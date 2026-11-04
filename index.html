@@ -3,21 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CIITWEB</title>
-    <link rel="icon" type="image/x-icon" href="">
-</head>
-<body style="background-image: url('bg.gif');"  style="background-repeat: no-repeat;">
-    <h1>CIITWEB</h1>
-    <nav>
-        
-        <a href="testweek9.html">Test Week 9</a> |
-        <a href="# " >Test Week 10</a> |
-        <a href="# " >Test Week 10</a>
+    <title>Olive's Personal Website</title>
+    <style> 
+        @font-face {
+          font-family: 'AtlantisInternational-jen0';
+          src: url('AtlantisInternational-jen0.ttf') format('truetype'); 
+          font-weight: normal;
+          font-style: normal;
+        }
 
-    </nav>
-    <h2>Welcome to my website</h2>
-    <p>This is my first website using HTML and CSS.</p>
-    <p>Here you can find information about me and my projects.</p>
-    <p>Feel free to explore and contact me if you have any questions.</p>
+        body {
+          font-family: 'AtlantisInternational-jen0', Arial, sans-serif;
+          margin: 0;
+          padding: 40px 20px;
+          background-image: url('bg.gif');
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-color: #f4f4f9;
+        }
+
+        h1 {
+          color: #000;
+          margin-bottom: 20px;
+          text-shadow: 1px 1px 0px #fff;
+        }
+
+        /* windowapp*/
+        .window-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* navigator */
+        nav {
+            display: flex;
+            gap: 4px;
+            padding-left: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            background-color: rgba(55, 33, 127, 0.4);
+            padding: 8px 16px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: none; /* Blends into the window body */
+            transition: background 0.2s;
+        }
+
+        /* hovers*/
+        nav a:hover, nav a.active {
+            background-color: rgba(55, 33, 127, 0.75);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* body of window*/
+        .window-body {
+            background-color: rgba(55, 33, 127, 0.65); /* Semi-transparent window background */
+            backdrop-filter: blur(4px); /* Slight blur effect over the gif background */
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            border-top-left-radius: 0px; /* Aligns sharply with the first tab */
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        /*columns*/
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Changed to 2 columns matching your design */
+            gap: 25px;
+            color: white;
+        }
+
+        .grid-column h2 {
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+
+        .grid-column p {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Olive's Personal Website</h1>
+
+    
+    <div class="window-container">
+        
+
+        <nav>
+            <a href="#" class="active">Home</a>
+            <a href="#">Portfolio</a>
+            <a href="#">About Me</a>
+        </nav>
+        
+        
+        <div class="window-body">
+            <div class="grid-container">
+                
+           
+                <div class="grid-column">
+                    <h2>Welcome to my website</h2>
+                    <p>This is my first website using HTML and CSS.</p>
+                </div>
+                
+                
+                <div class="grid-column">
+                    <p>Here you can find information about me and my projects.</p>
+                    <p>Feel free to explore and contact me if you have any questions.</p>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+
 </body>
 </html>
