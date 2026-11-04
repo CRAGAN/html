@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olive's Personal Website</title>
+    <style> 
+     /* FONTS*/
+        @font-face {
+          font-family: 'AtlantisInternational-jen0';
+          src: url('AtlantisInternational-jen0.ttf') format('truetype'); 
+          font-weight: normal;
+          font-style: normal;
+        }
+
+        body {
+          font-family: 'AtlantisInternational-jen0', Arial, sans-serif;
+          margin: 0;
+          padding: 40px 20px;
+          background-image: url('bg.gif');
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-color: #f4f4f9;
+        }
+        /* COLOR. OF SHIT*/
+        h1 {
+          color: #fbfbff;
+          margin-bottom: 20px;
+          text-shadow: 3px 3px 0px #140b3fa0;
+        }
+
+        /* windowapp*/
+        .window-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* navigator */
+        nav {
+            display: flex;
+            gap: 4px;
+            padding-left: 10px;
+        }
+
+        nav a {
+            color: rgb(204, 153, 255);
+            text-decoration: none;
+            background-color: rgba(55, 33, 127, 0.4);
+            padding: 8px 16px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            border: 1px solid rgba(255, 210, 210, 0.553);
+            border-bottom: none;
+            transition: background 0.2s;
+        }
+
+        /* hovers*/
+        nav a:hover, nav a.active {
+            background-color: rgba(55, 33, 127, 0.75);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* body of window*/
+        .window-body {
+            background-color: rgba(55, 33, 127, 0.65);
+            
+            backdrop-filter: blur(4px); 
+            border: 2px solid rgba(255, 185, 185, 0.743);
+            border-radius: 12px;
+            border-top-left-radius: 0px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Splits layout into Left Text (40%) and Right Grid (60%) */
+        .portfolio-split {
+            display: flex;
+            gap: 30px;
+        }
+
+        .portfolio-text {
+            flex: 40%;
+            color: white;
+        }
+
+        .subtitle {
+            opacity: 0.8;
+            margin-top: 20px;
+        }
+
+        /* THE NEW IMAGE GRID */
+        .image-grid {
+            flex: 60%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 15px;
+        }
+
+        /* Individual Card Styling */
+        .grid-card {
+            display: block;
+            background-color: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            overflow: hidden;
+            text-decoration: none;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .grid-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Keeps thumbnails uniform inside template */
+        .grid-card img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Label text below each image card */
+        .card-label {
+            display: block;
+            padding: 6px;
+            font-size: 0.9rem;
+            color: #fff;
+            text-align: center;
+            background-color: rgba(55, 33, 127, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Olive's Personal Website</h1>
+
+    <div class="window-container">
+        
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="portfolio.html" class="active">Portfolio</a>
+            <a href="about.html">About Me</a>
+        </nav>
+        
+      
+        <div class="window-body">
+            <div class="portfolio-split">
+               
+                <div class="portfolio-text">
+                    <h2>Portfolio</h2>
+                    <p>I am a passionate artist and game developer. ݁₊ ⊹ . ݁˖ . ݁</p>
+                    <p> background art by: a-confused-dragon </p>
+                    
+                </div>
+                
+                
+                <div class="image-grid">
+                    
+                    <a href="https://itch.io" target="_blank" class="grid-card">
+                        <img src="game1-thumbnail.png" alt="My First Game">
+                        <span class="card-label">Play Catfish in Disguise 👾</span>
+                    </a>
+                    
+                    <a href="https://itch.io" target="_blank" class="grid-card">
+                        <img src="game2-thumbnail.png" alt="Game 2 Title">
+                        <span class="card-label">Play Deadline On The Line 👾</span>
+                    </a>
+
+                    <a href="myart.gif" target="_blank" class="grid-card">
+                        <img src="myart.gif" alt="animation">
+                        <span class="card-label">View Full Art</span>
+                    </a>
+                    <a href="c2ultnoclothes.mp4" target="_blank" class="grid-card">
+                        <img src="c2ultnoclothes.mp4" alt="Artwork 1 Title">
+                        <span class="card-label">View Full Art</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
