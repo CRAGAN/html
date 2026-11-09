@@ -4,38 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Olive's Personal Website</title>
-    <style> 
-     /* FONTS*/
+
+    <style>
+        /* FONTS */
         @font-face {
-          font-family: 'AtlantisInternational-jen0';
-          src: url('AtlantisInternational-jen0.ttf') format('truetype'); 
-          font-weight: normal;
-          font-style: normal;
+            font-family: 'AtlantisInternational-jen0';
+            src: url('AtlantisInternational-jen0.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
         }
 
         body {
-          font-family: 'AtlantisInternational-jen0', Arial, sans-serif;
-          margin: 0;
-          padding: 40px 20px;
-          background-image: url('bg.gif');
-          background-repeat: no-repeat;
-          background-size: cover;
-          background-color: #f4f4f9;
-        }
-        /* COLOR. OF SHIT*/
-        h1 {
-          color: #fbfbff;
-          margin-bottom: 20px;
-          text-shadow: 3px 3px 0px #140b3fa0;
+            font-family: 'AtlantisInternational-jen0', Arial, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            background-image: url('bg.gif');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: #f4f4f9;
+            animation: glitchPage 0.8s ease-out;
         }
 
-        /* windowapp*/
+        /* PAGE ANIMATION */
+        @keyframes glitchPage {
+            0% {
+                opacity: 0;
+                transform: translateX(-8px);
+                filter: hue-rotate(90deg);
+            }
+
+            20% {
+                opacity: 0.8;
+                transform: translateX(8px);
+                filter: hue-rotate(180deg);
+            }
+
+            40% {
+                opacity: 0.5;
+                transform: translateX(-5px);
+                filter: hue-rotate(270deg);
+            }
+
+            60% {
+                opacity: 0.9;
+                transform: translateX(5px);
+                filter: contrast(180%);
+            }
+
+            80% {
+                opacity: 0.7;
+                transform: translateX(-2px);
+                filter: hue-rotate(90deg);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+                filter: none;
+            }
+        }
+
+        /* TITLE */
+        h1 {
+            color: #fbfbff;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 0px #140b3fa0;
+        }
+
+        /* WINDOW */
         .window-container {
             max-width: 900px;
             margin: 0 auto;
         }
 
-        /* navigator */
+        /* NAVIGATION */
         nav {
             display: flex;
             gap: 4px;
@@ -51,28 +93,32 @@
             border-top-right-radius: 8px;
             border: 1px solid rgba(255, 210, 210, 0.553);
             border-bottom: none;
-            transition: background 0.2s;
+            transition: background-color 0.2s;
         }
 
-        /* hovers*/
-        nav a:hover, nav a.active {
+        nav a:hover,
+        nav a.active {
             background-color: rgba(55, 33, 127, 0.75);
             border-color: rgba(255, 255, 255, 0.4);
         }
 
-        /* body of window*/
+        /* WINDOW BODY */
         .window-body {
             background-color: rgba(55, 33, 127, 0.65);
+
+            /* Blur removed */
             
-            backdrop-filter: blur(4px); 
+            backdrop-filter: none;
+            -webkit-backdrop-filter: blur(2px);
+
             border: 2px solid rgba(255, 185, 185, 0.743);
             border-radius: 12px;
-            border-top-left-radius: 0px;
+            border-top-left-radius: 0;
             padding: 30px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
-        
-        /* Splits layout into Left Text (40%) and Right Grid (60%) */
+
+        /* PORTFOLIO LAYOUT */
         .portfolio-split {
             display: flex;
             gap: 30px;
@@ -83,12 +129,7 @@
             color: white;
         }
 
-        .subtitle {
-            opacity: 0.8;
-            margin-top: 20px;
-        }
-
-        /* THE NEW IMAGE GRID */
+        /* IMAGE GRID */
         .image-grid {
             flex: 60%;
             display: grid;
@@ -96,7 +137,7 @@
             gap: 15px;
         }
 
-        /* Individual Card Styling */
+        /* IMAGE CARDS */
         .grid-card {
             display: block;
             background-color: rgba(0, 0, 0, 0.3);
@@ -112,7 +153,6 @@
             border-color: rgba(255, 255, 255, 0.6);
         }
 
-        /* Keeps thumbnails uniform inside template */
         .grid-card img {
             width: 100%;
             height: 120px;
@@ -120,7 +160,6 @@
             display: block;
         }
 
-        /* Label text below each image card */
         .card-label {
             display: block;
             padding: 6px;
@@ -129,60 +168,101 @@
             text-align: center;
             background-color: rgba(55, 33, 127, 0.5);
         }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* MOBILE LAYOUT */
+        @media (max-width: 700px) {
+            .portfolio-split {
+                flex-direction: column;
+            }
+
+            .portfolio-text,
+            .image-grid {
+                flex: 100%;
+            }
+        }
     </style>
 </head>
+
 <body>
 
     <h1>Olive's Personal Website</h1>
 
     <div class="window-container">
-        
+
         <nav>
             <a href="index.html">Home</a>
             <a href="portfolio.html" class="active">Portfolio</a>
             <a href="about.html">About Me</a>
         </nav>
-        
-      
+
         <div class="window-body">
+
             <div class="portfolio-split">
-               
-                <div class="portfolio-text">
+
+                <div class="portfolio-text" style="border: 1px solid #ffcac2; border-radius: 8px; padding: 10px;">
                     <h2>Portfolio</h2>
-                    <p>I am a passionate artist and game developer. ݁₊ ⊹ . ݁˖ . ݁</p>
-                    <p> background art by: a-confused-dragon </p>
-                    
+
+                    <p>
+                        I am a passionate artist and game developer.
+                        ݁₊ ⊹ . ݁˖ . ݁
+                    </p>
+
+                    <p>Background art by: a-confused-dragon</p>
+                    <p>Background art by: a-confused-dragon</p>
+                    <p>Background art by: a-confused-dragon</p>
+                    <p>Background art by: a-confused-dragon</p>
+                    <p>Background art by: a-confused-dragon</p>
+                    <p>Background art by: a-confused-dragon</p>
                 </div>
-                
-                
-                <div class="image-grid">
-                    
+
+                <div class="image-grid" style="border: 1px solid #ffcac2; border-radius: 8px; padding: 10px;">
+
                     <a href="https://itch.io" target="_blank" class="grid-card">
-                        <img src="game1-thumbnail.png" alt="My First Game">
-                        <span class="card-label">Play Catfish in Disguise 👾</span>
+                        <img src="west end.gif" alt="My First Game">
+                        <span class="card-label">
+                            Play West-End Galaxy 👾
+                        </span>
                     </a>
-                    
+
                     <a href="https://itch.io" target="_blank" class="grid-card">
-                        <img src="deadontheline.gif" alt="Game 2 Title">
-                        <span class="card-label">Play Deadline On The Line 👾</span>
+                        <img src="deadontheline.gif" alt="Deadline On The Line">
+                        <span class="card-label">
+                            Play Deadline On The Line 👾
+                        </span>
                     </a>
 
                     <a href="myart.gif" target="_blank" class="grid-card">
-                        <img src="myart.gif" alt="animation">
-                        <span class="card-label">View Full Art</span>
+                        <img src="myart.gif" alt="My artwork">
+                        <span class="card-label">
+                            View Full Art
+                        </span>
                     </a>
-                    <a href="c2ultnoclothes.mp4" target="_blank" class="grid-card">
-                        <img src="c2ultnoclothes.mp4" alt="Artwork 1 Title">
-                        <span class="card-label">View Full Art</span>
+
+                    <a href="out of reach.png" target="_blank" class="grid-card">
+                        <img src="out of reach.png" alt="My piece of art">
+
+                        <span class="card-label">
+                            View Full Art
+                        </span>
                     </a>
+
                 </div>
             </div>
         </div>
+    </div>
 
+    <div class="footer">
+        <p style="color: white;">
+            This website is for personal and academic use only.
+            All assets that are not made by me are the property of their respective owners.
+        </p>
     </div>
 
 </body>
-<div class="footer">
-            <p style="color: white;">This website is for Personal and academic use only. All assets that are not made by me are the property of their respective owners.</p>
-        </div>
 </html>

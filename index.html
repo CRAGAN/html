@@ -4,37 +4,100 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Olive's Personal Website</title>
-    <style> 
+
+    <style>
         @font-face {
-          font-family: 'AtlantisInternational-jen0';
-          src: url('AtlantisInternational-jen0.ttf') format('truetype'); 
-          font-weight: normal;
-          font-style: normal;
+            font-family: 'AtlantisInternational-jen0';
+            src: url('AtlantisInternational-jen0.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
         }
 
         body {
-          font-family: 'AtlantisInternational-jen0', Arial, sans-serif;
-          margin: 0;
-          padding: 40px 20px;
-          background-image: url('bg2.gif');
-          background-repeat: no-repeat;
-          background-size: cover;
-          background-color: #f4f4f9;
+            font-family: 'AtlantisInternational-jen0', Arial, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            background-image: url('bg2.gif');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: #f4f4f9;
+
+            /* Glitch effect when the page loads */
+            animation: 
+                glitchPage 0.8s ease-out, 
+                bounceAnimation 5s ease 1.0s infinite;
+            
+        }
+
+        @keyframes glitchPage {
+            0% {
+                opacity: 0;
+                transform: translateX(-15px);
+                filter: hue-rotate(90deg) contrast(200%);
+            }
+
+            15% {
+                opacity: 0.5;
+                transform: translateX(15px);
+                filter: hue-rotate(180deg) contrast(250%);
+            }
+
+            30% {
+                opacity: 0.8;
+                transform: translateX(-10px);
+                filter: hue-rotate(270deg);
+            }
+
+            45% {
+                opacity: 0.4;
+                transform: translateX(10px);
+                filter: contrast(300%);
+            }
+
+            60% {
+                opacity: 0.9;
+                transform: translateX(-5px);
+                filter: hue-rotate(90deg);
+            }
+
+            80% {
+                opacity: 0.7;
+                transform: translateX(3px);
+                filter: contrast(180%);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+                filter: none;
+            }
+        }
+        @keyframes bounceAnimation {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+            }
+
+        .element {
+            animation-name: bounceAnimation;
+            animation-duration: 5s;
+            animation-timing-function: ease;
+            animation-delay: 1.0s;
+            animation-iteration-count: infinite;
+            animation-direction: normal;
+            animation-fill-mode: both;
         }
 
         h1 {
-          color: #fbfbff;
-          margin-bottom: 20px;
-          text-shadow: 3px 3px 0px #0b143fa0;
+            color: #fbfbff;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 0px #0b143fa0;
         }
 
-        /* windowapp*/
         .window-container {
             max-width: 900px;
             margin: 0 auto;
         }
 
-        /* navigator */
         nav {
             display: flex;
             gap: 4px;
@@ -49,31 +112,28 @@
             border-top-left-radius: 8px;
             border-top-right-radius: 8px;
             border: 1px solid rgba(185, 255, 254, 0.743);
-            border-bottom: none; /* cool! */
+            border-bottom: none;
             transition: background 0.2s;
         }
 
-        /* hovers*/
-        nav a:hover, nav a.active {
+        nav a:hover,
+        nav a.active {
             background-color: rgba(33, 57, 127, 0.75);
             border-color: rgba(255, 255, 255, 0.4);
         }
 
-        /* body of window*/
         .window-body {
             background-color: rgba(23, 30, 92, 0.65);
-            backdrop-filter: blur(4px); /*cooleffect */
+            backdrop-filter: blur(4px);
             border: 2px solid rgba(185, 255, 254, 0.743);
             border-radius: 12px;
-            border-top-left-radius: 12px; /* this  saved me*/
             padding: 30px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
-        
-        /*columns*/
+
         .grid-container {
             display: grid;
-            grid-template-columns: 1fr 1fr; 
+            grid-template-columns: 1fr 1fr;
             gap: 25px;
             color: white;
         }
@@ -86,10 +146,9 @@
         .grid-column p {
             font-size: 1.2rem;
             line-height: 1.5;
-            line-width: 1.5;
             margin-bottom: 12px;
         }
-        /* Container styling */
+
         .message-box-container {
             background-color: rgba(33, 50, 127, 0.44);
             border: 2px solid #adfff4c6;
@@ -100,31 +159,29 @@
             margin-top: 20px;
         }
 
-        /* Form input */
         .guestbook-form label {
             display: block;
             margin-top: 10px;
             font-weight: bold;
         }
 
-        .guestbook-form input, 
+        .guestbook-form input,
         .guestbook-form textarea {
             width: 100%;
             padding: 8px;
             margin-top: 5px;
             border: 1px solid #cccccc;
             border-radius: 3px;
-            box-sizing: border-box; 
-            background-color: #fff;
-            color: #000;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            color: #000000;
         }
 
-        /* Submit button styling */
         .guestbook-form button {
             margin-top: 15px;
             background-color: #21267f7b;
             color: white;
-            border: 1px solid #fff;
+            border: 1px solid white;
             padding: 10px 15px;
             cursor: pointer;
             border-radius: 3px;
@@ -135,77 +192,116 @@
             background-color: #2e54ab92;
         }
 
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+        }
     </style>
 </head>
+
 <body>
 
     <h1>Olive's Personal Website</h1>
 
-    
     <div class="window-container">
-        
 
         <nav>
             <a href="index.html" class="active">Home</a>
             <a href="portfolio.html">Portfolio</a>
             <a href="about.html">About Me</a>
         </nav>
-        
-        
+
         <div class="window-body">
+
             <div class="grid-container">
-                
-           
+
                 <div class="grid-column">
-                    
                     <h2>Welcome to my website</h2>
-                    <img src="blubur.png" alt="My Image" width="150" height="150">
-                    <p>This is my first website using HTML.</p>
-                </div>
-                
-                
-                <div class="grid-column">
+
+                    <img src="blubur.png"
+                         alt="My Image"
+                         width="150"
+                         height="150">
                     
-                    <p>Here you can find information about me and my projects.</p>
-                    <p>Feel free to explore and contact me if you have any questions.</p>
+
+                    <p>
+                        This is my first website using HTML.
+                    </p>
+                </div>
+
+                <div class="grid-column" style="border: 1px solid #c2f6ff; border-radius: 8px; padding: 10px;">
+                    <p>
+                        Here you can find information about me and my projects.
+                    </p>
+
+                    <p>
+                        
+                        Feel free to explore and contact me if you have any questions.
+                    </p>
+
                     
                     <audio controls autoplay loop>
                         <source src="Working Overtime 2m.mp3" type="audio/mpeg">
+                        
                     </audio>
-
-                </div>
-                <div class="grid-column">
-                    <p> background art by: a-confused-dragon </p>
                     <h2>Socials</h2>
                     <h3>Contact Me</h3>
-                    <p>Email: hapicoil653@gmail.com</p>
+
+                    <p>
+                        Email: hapicoil653@gmail.com
+                    </p>
+
+                    <p><img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/itch-io.png" alt="itch-io"/> <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/instagram-new.png" alt="instagram-new"/> <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/youtube-play.png" alt="youtube-play"/> <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/tiktok.png" alt="tiktok"/> <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/pixel-star.png" alt="pixel-star"/></p>
+                    
+                </div>
+
+                <div class="grid-column">
+                    <p>
+                        Background art by: a-confused-dragon
+                    </p>
+
+                   
                     <div class="message-box-container">
-                    <h3> Leave a Message!</h3>
-                    
-                    
-                    <form action="https://formspree.io/f/xbggqear" method="POST" class="guestbook-form">
-                        
-                        <label for="name">Your Name:</label>
-                        <input type="text" id="name" name="name" placeholder="nobody" required>
+                        <h3>Leave a Message!</h3>
 
-                        <label for="message">Message:</label>
-                        <textarea id="message" name="message" rows="4" placeholder="interested in commissioning me or just want to say hi? send me a message <3" required></textarea>
+                        <form
+                            action="https://formspree.io/f/xbggqear"
+                            method="POST"
+                            class="guestbook-form">
 
-                        <button type="submit">submit!</button>
-                    
-                    </form>
-                    
+                            <label for="name">Your Name:</label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Nobody"
+                                required>
+
+                            <label for="message">Message:</label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                rows="4"
+                                placeholder="Interested in commissioning me or just want to say hi? Send me a message!"
+                                required></textarea>
+
+                            <button type="submit">Submit!</button>
+                        </form>
+                    </div>
                 </div>
-                </div>
-                
+
             </div>
-            
         </div>
-
     </div>
 
+    <div class="footer">
+        <p style="color: white;">
+            This website is for personal and academic use only.
+            All assets that are not made by me are the property of their
+            respective owners.
+        </p>
+    </div>
+    
+
 </body>
-<div class="footer">
-            <p style="color: white;">This website is for Personal and academic use only. All assets that are not made by me are the property of their respective owners.</p>
-        </div>
 </html>
