@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olive's Personal Website</title>
+    <style> 
+        @font-face {
+          font-family: 'AtlantisInternational-jen0';
+          src: url('AtlantisInternational-jen0.ttf') format('truetype'); 
+          font-weight: normal;
+          font-style: normal;
+        }
+
+        body {
+          font-family: 'AtlantisInternational-jen0', Arial, sans-serif;
+          margin: 0;
+          padding: 40px 20px;
+          background-image: url('bg3.gif');
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-color: #f4f4f9;
+        }
+
+        h1 {
+          color: #fbfbff;
+          margin-bottom: 20px;
+          text-shadow: 3px 3px 0px #044636a0;
+        }
+
+        /* windowapp*/
+        .window-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* navigator */
+        nav {
+            display: flex;
+            gap: 4px;
+            padding-left: 10px;
+        }
+
+        nav a {
+            color: rgb(153, 255, 255);
+            text-decoration: none;
+            background-color: rgba(10, 65, 91, 0.65);
+            padding: 8px 16px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            border: 1px solid rgb(185, 255, 254, 0.743);
+            border-bottom: none; /* cool! */
+            transition: background 0.2s;
+        }
+
+        /* hovers*/
+        nav a:hover, nav a.active {
+            background-color: rgba(33, 127, 116, 0.75);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* body of window*/
+        .window-body {
+            background-color: rgba(10, 65, 91, 0.65);
+            backdrop-filter: blur(2px); /*cooleffect */
+            border: 2px solid rgba(185, 255, 229, 0.743);
+            border-radius: 12px;
+            border-top-left-radius: 12px; /* this  saved me*/
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr; 
+            gap: 25px;
+            color: white;
+        }
+
+        .grid-column h2 {
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+
+        .grid-column p {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            line-width: 1.5;
+            margin-bottom: 12px;
+        }
+    
+    </style>
+</head>
+    <body>
+
+        <h1>Olive's Personal Website</h1>
+        
+        
+        <div class="window-container">
+            
+
+            <nav>
+                <a href="index.html" class="active">Home</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="about.html">About Me</a>
+            </nav>
+            
+            
+            <div class="window-body" style="color:#e2ffe2fc">
+                
+                    
+            
+                
+                    
+                <h2>A little about me!</h2>
+                <img src="me.png" alt="My self" width="165" height="185" style="border-radius:900px;" style="border-color:#f4f4f9" border="3px">
+                <p>This is my first website using HTML.</p>
+            
+            </div>
+                
+        </body>
+        <div class="footer">
+            <p style="color: white;">This website is for Personal and academic use only. All assets that are not made by me are the property of their respective owners.</p>
+        </div>
+    </html>
+
