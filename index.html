@@ -17,7 +17,7 @@
             font-family: 'AtlantisInternational-jen0', Arial, sans-serif;
             margin: 0;
             padding: 40px 20px;
-            background-image: url('bg2.gif');
+            background-image: url('gifs/bg2.gif');
             background-repeat: no-repeat;
             background-size: cover;
             background-color: #f4f4f9;
@@ -25,7 +25,7 @@
             /* Glitch effect when the page loads */
             animation: 
                 glitchPage 0.8s ease-out, 
-                bounceAnimation 5s ease 1.0s infinite;
+              
             
         }
 
@@ -86,6 +86,28 @@
             animation-direction: normal;
             animation-fill-mode: both;
         }
+        .blur-bar {
+            position: absolute; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 2px;
+            box-sizing: border-box;
+            
+            /* The Blur Effect */
+            background-color: rgba(59, 76, 150, 0.319); 
+            backdrop-filter: blur(12px);                 
+                
+            
+            
+            border-image: linear-gradient(to right, rgba(29, 69, 173, 0.333), rgba(255,255,255,0.3), rgba(255,255,255,0)) 1;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+         
+            margin-bottom: 50px;
+        }
 
         h1 {
             color: #fbfbff;
@@ -96,6 +118,7 @@
         .window-container {
             max-width: 900px;
             margin: 0 auto;
+            animation: bounceAnimation 5s ease 1.0s infinite;
         }
 
         nav {
@@ -173,8 +196,8 @@
             border: 1px solid #cccccc;
             border-radius: 3px;
             box-sizing: border-box;
-            background-color: #ffffff;
-            color: #000000;
+            background-color: #413b8e3d;
+            color: #d0fffd;
         }
 
         .guestbook-form button {
@@ -213,12 +236,16 @@
    
     </style>
 </head>
+<header class="blur-bar" style="padding: 40px;" >
+    <h1>Olive's Personal Website</h1>
+</header>
+
 
 <body>
 
-    <h1>Olive's Personal Website</h1>
-
-    <div class="window-container">
+   
+    
+    <div class="window-container" style="margin-top: 150px;">
 
         <nav>
             <a href="index.html" class="active">Home</a>
@@ -239,7 +266,7 @@
                 </div>
 
                 <div class="grid-column" style="border: 1px solid #c2f6ff; border-radius: 8px; padding: 10px;">
-                    <img src="me.png" alt="Myself" width="165" height="195" style="border-radius: 20%; border: 2px solid #bfe9d7fc; display: block; margin: 0 auto;">
+                    <img src="images/me.png" alt="Myself" width="165" height="195" style="border-radius: 20%; border: 2px solid #bfe9d7fc; display: block; margin: 0 auto;">
 
                     <p>
                         Here you can find information about me and my projects.
@@ -262,8 +289,10 @@
                         Email: hapicoil653@gmail.com
                     </p>
 
-                    <p><img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/itch-io.png" alt="itch-io"/> <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/instagram-new.png" alt="instagram-new"/> <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/youtube-play.png" alt="youtube-play"/> <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/tiktok.png" alt="tiktok"/> <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/pixel-star.png" alt="pixel-star"/></p>
-                    
+                    <p>
+                    <a href="https://codedcheese.itch.io" target="_blank"><img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/itch-io.png" alt="itch-io"/></a> <a href="https://www.instagram.com/oliv_oil15/" target="_blank"><img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/instagram-new.png" alt="instagram-new"/></a> <a href="https://www.youtube.com/channel/UCk8r3JZ6z9X5X5X5X5X5X5X5" target="_blank"><img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/youtube-play.png" alt="youtube-play"/></a> <a href="https://www.tiktok.com/@hapicoil" target="_blank"><img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/tiktok.png" alt="tiktok"/></a> <a href="https://pixelstar.io/@hapicoil" target="_blank"><img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/pixel-star.png" alt="pixel-star"/></a>
+                    </p>
+
                 </div>
 
                 <div class="grid-column">
@@ -305,13 +334,13 @@
         </div>
     </div>
 
-    <div class="footer">
-        <p style="color: white;">
+    <footer style="background-color: #2e4b6d41; backdrop-filter: blur(4px); align-items: center;  padding: 20px; border-radius: 5px; color: white; margin-top: 20px; postion: fixed;  width: 100%;">
+        <h3>
             This website is for personal and academic use only.
             All assets that are not made by me are the property of their
             respective owners.
-        </p>
-    </div>
+        </h3>
+    </footer>
     
 
 </body>
