@@ -3,29 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Olive's Personal Website</title>
+    <title>Portfolio - Olive's Personal Website</title>
 
     <style>
-        /* FONTS */
         @font-face {
-            font-family: 'AtlantisInternational-jen0';
-            src: url('AtlantisInternational-jen0.ttf') format('truetype');
+            font-family: "AtlantisInternational";
+            src: url("AtlantisInternational-jen0.ttf") format("truetype");
             font-weight: normal;
             font-style: normal;
         }
 
-        body {
-            font-family: 'AtlantisInternational-jen0', Arial, sans-serif;
-            margin: 0;
-            padding: 40px 20px;
-            background-image: url('gifs/bg.gif');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-color: #f4f4f9;
-            animation: glitchPage 0.8s ease-out, bounceAnimation 5s ease 1.0s infinite;
+        * {
+            box-sizing: border-box;
         }
 
-        /* PAGE ANIMATION */
+        body {
+            font-family: "AtlantisInternational", Arial, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            padding: 0 20px 40px;
+            background-image: url("gifs/bg.gif");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: #f4f4f9;
+            cursor: url("images/cursor (3).cur"), auto;
+            animation: glitchPage 0.8s ease-out;
+        }
+
+        /* HEADER */
+
+        .blur-bar {
+            width: calc(100% + 40px);
+            margin-left: -20px;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: rgba(55, 33, 127, 0.35);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 210, 210, 0.7);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .blur-bar h1 {
+            margin: 0;
+            color: #fbfbff;
+            font-size: 2rem;
+            line-height: 1.3;
+            text-shadow: 3px 3px 0 #140b3f;
+        }
+
+        /* ANIMATIONS */
+
         @keyframes glitchPage {
             0% {
                 opacity: 0;
@@ -64,20 +96,26 @@
             }
         }
 
-        /* TITLE */
-        h1 {
-            color: #fbfbff;
-            margin-bottom: 20px;
-            text-shadow: 3px 3px 0px #140b3fa0;
+        @keyframes bounceAnimation {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
         }
 
-        /* WINDOW */
+        /* MAIN WINDOW */
+
         .window-container {
-            max-width: 900px;
-            margin: 0 auto;
+            max-width: 1100px;
+            margin: 90px auto 0;
+            animation: bounceAnimation 5s ease 1s infinite;
         }
 
         /* NAVIGATION */
+
         nav {
             display: flex;
             gap: 4px;
@@ -87,127 +125,193 @@
         nav a {
             color: rgb(204, 153, 255);
             text-decoration: none;
-            background-color: rgba(55, 33, 127, 0.4);
+            background-color: rgba(55, 33, 127, 0.55);
             padding: 8px 16px;
             border-top-left-radius: 8px;
             border-top-right-radius: 8px;
-            border: 1px solid rgba(255, 210, 210, 0.553);
+            border: 1px solid rgba(255, 210, 210, 0.7);
             border-bottom: none;
-            transition: background-color 0.2s;
+            transition: background-color 0.2s ease;
         }
 
         nav a:hover,
         nav a.active {
-            background-color: rgba(55, 33, 127, 0.75);
-            border-color: rgba(255, 255, 255, 0.4);
+            background-color: rgba(55, 33, 127, 0.85);
+            border-color: rgba(255, 255, 255, 0.7);
         }
 
         /* WINDOW BODY */
+
         .window-body {
+            padding: 30px;
             background-color: rgba(55, 33, 127, 0.65);
-
-            /* Blur removed */
-            
-            backdrop-filter: none;
-            -webkit-backdrop-filter: blur(2px);
-
+            backdrop-filter: blur(3px);
             border: 2px solid rgba(255, 185, 185, 0.743);
             border-radius: 12px;
             border-top-left-radius: 0;
-            padding: 30px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
-        /* PORTFOLIO LAYOUT */
+        .portfolio-header {
+            color: #fbfbff;
+            border: 1px solid #ffcac2;
+            border-radius: 8px;
+            padding: 10px 20px;
+            margin-bottom: 25px;
+        }
+
+        .portfolio-header h2 {
+            margin-top: 0;
+        }
+
+        /* PORTFOLIO SECTIONS */
+
         .portfolio-split {
-            display: flex;
-            gap: 30px;
+            display: grid;
+            grid-template-columns: 40% 60%;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .portfolio-text,
+        .image-grid {
+            border: 1px solid #ffcac2;
+            border-radius: 8px;
+            padding: 15px;
         }
 
         .portfolio-text {
-            flex: 40%;
             color: white;
+            line-height: 1.6;
         }
 
-        /* IMAGE GRID */
+        .portfolio-text h2 {
+            margin-top: 0;
+            color: #ffdede;
+        }
+
+        .portfolio-text p {
+            font-size: 1.1rem;
+        }
+
         .image-grid {
-            flex: 60%;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            align-content: start;
             gap: 15px;
         }
 
         /* IMAGE CARDS */
+
         .grid-card {
             display: block;
+            overflow: hidden;
             background-color: rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 6px;
-            overflow: hidden;
             text-decoration: none;
-            transition: transform 0.2s, border-color 0.2s;
+            transition: transform 0.2s ease, border-color 0.2s ease;
         }
 
         .grid-card:hover {
-            transform: translateY(-3px);
-            border-color: rgba(255, 255, 255, 0.6);
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.8);
+        }
+        .vgen-card {
+            grid-column: 1 / -1;
+            width: 360px;
+            justify-self: center;
+        }
+
+        @media (max-width: 750px) {
+            .vgen-card {
+                width: 100%;
+            }
         }
 
         .grid-card img {
+            display: block;
             width: 100%;
             height: 120px;
             object-fit: cover;
-            display: block;
         }
 
         .card-label {
             display: block;
-            padding: 6px;
+            min-height: 48px;
+            padding: 8px 5px;
+            color: white;
             font-size: 0.9rem;
-            color: #fff;
+            line-height: 1.2;
             text-align: center;
-            background-color: rgba(55, 33, 127, 0.5);
+            background-color: rgba(55, 33, 127, 0.7);
         }
 
         /* FOOTER */
+
         .footer {
+            max-width: 1100px;
+            margin: 25px auto 0;
+            padding: 20px;
+            background-color: rgba(55, 33, 127, 0.4);
+            backdrop-filter: blur(4px);
+            border-radius: 8px;
             text-align: center;
-            margin-top: 20px;
         }
 
-        /* MOBILE LAYOUT */
-        @media (max-width: 700px) {
+        .footer p {
+            margin: 0;
+            color: white;
+            line-height: 1.5;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 750px) {
+            body {
+                padding: 0 10px 30px;
+            }
+
+            .blur-bar {
+                width: calc(100% + 20px);
+                margin-left: -10px;
+                padding: 15px 10px;
+            }
+
+            .blur-bar h1 {
+                font-size: 1.4rem;
+            }
+
+            .window-container {
+                margin-top: 60px;
+            }
+
+            .window-body {
+                padding: 15px;
+                border-top-left-radius: 12px;
+            }
+
             .portfolio-split {
-                flex-direction: column;
+                grid-template-columns: 1fr;
             }
 
-            .portfolio-text,
-            .image-grid {
-                flex: 100%;
+            nav {
+                padding-left: 0;
+                flex-wrap: wrap;
             }
-        }
-        @keyframes bounceAnimation {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
-            }
-
-        .element {
-            animation-name: bounceAnimation;
-            animation-duration: 5s;
-            animation-timing-function: ease;
-            animation-delay: 1.0s;
-            animation-iteration-count: infinite;
-            animation-direction: normal;
-            animation-fill-mode: both;
         }
     </style>
 </head>
 
 <body>
 
-    <h1>Olive's Personal Website</h1>
+    <header class="blur-bar">
+        <h1>
+            ⋆˙⟡ ⋆.˚ ⊹₊⟡ ⋆ Olive's Personal Website ⋆˙⟡ ⋆.˚ ⊹₊⟡ ⋆
+        </h1>
+    </header>
 
-    <div class="window-container">
+    <main class="window-container">
 
         <nav>
             <a href="index.html">Home</a>
@@ -215,115 +319,189 @@
             <a href="about.html">About Me</a>
         </nav>
 
-        <div class="window-body">
-            <header style=" color:#fbfbff; border: 1px solid #ffcac2; border-radius: 8px; padding: 10px;">
-                <h2>Portfolio</h2>
-                <p> I am a passionate artist and game developer.  ݁₊ ⊹ . ݁˖ . ݁</p>
+        <section class="window-body">
+
+            <header class="portfolio-header">
+                <h2>˗ˏˋ ★ Portfolio</h2>
+                <p>
+                    I am a passionate artist and game developer.
+                    ݁₊ ⊹ . ݁˖ . ݁ 
+                    This portfolio showcases some of the games, artwork, animations, and illustrations I have created. Each project represents my creativity, interests, and progress as an artist and game developer. I enjoy experimenting with different styles and ideas, and I am always looking for new ways to improve my skills and bring my concepts to life.
+                </p>
             </header>
-            <p>
+
+            <!-- GAME SECTION -->
+
+            <section class="portfolio-split">
+
+                <div class="portfolio-text">
+                    <h2>✦ My Games</h2>
+
+                    <p>
+                        These are the games I have created and worked on as a game developer in Delve And Murder Studio. Each project combines storytelling, character design, art, and interactive gameplay. I enjoy creating unique ideas and experimenting with different themes, mechanics, and visual styles. Click on a game to learn more about it or play it!
+                    </p>
+                    <p>　. 　 ˚　.　　 *　　. 　 ˚　.　˚　　. 　 　.　　. 　 　.　.　*　　. 　 ˚　.　　.　　. 　 ˚　.　　. 　 ˚　　　* 　　.　. 　 ˚　.　　* 　　.　*　. 　 ˚</p>
                 
-            </p>
-            
-            <div class="portfolio-split">
-
-                <div class="portfolio-text" style="border: 1px solid #ffcac2; border-radius: 8px; padding: 10px;">
-                    
-
-                    <p>Background art by: a-confused-dragon</p>
-                    <p>Background art by: a-confused-dragon</p>
-                    <p>Background art by: a-confused-dragon</p>
-                    <p>Background art by: a-confused-dragon</p>
-                    <p>Background art by: a-confused-dragon</p>
-                    <p>Background art by: a-confused-dragon</p>
                 </div>
 
-                <div class="image-grid" style="border: 1px solid #ffcac2; border-radius: 8px; padding: 10px;">
+                <div class="image-grid">
 
-                    <a href="https://itch.io" target="_blank" class="grid-card">
-                        <img src="gifs/west end.gif" alt="My First Game">
+                    <a
+                        href="https://itch.io"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="grid-card"
+                    >
+                        <img src="gifs/west end.gif" alt="West-End Galaxy">
                         <span class="card-label">
                             Play West-End Galaxy 👾
                         </span>
                     </a>
 
-                    <a href="https://itch.io" target="_blank" class="grid-card">
+                    <a
+                        href="https://itch.io"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="grid-card"
+                    >
                         <img src="gifs/deadontheline.gif" alt="Deadline On The Line">
                         <span class="card-label">
                             Play Deadline On The Line 👾
                         </span>
                     </a>
-                    <a href="https://itch.io" target="_blank" class="grid-card">
-                        <img src="images/Roadless.png" alt="Deadline On The Line">
+
+                    <a
+                        href="https://itch.io"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="grid-card"
+                    >
+                        <img src="images/Roadless.png" alt="The Road Less Travelled">
                         <span class="card-label">
-                            Play The Roadless Travelled 👾
+                            Play The Road Less Travelled 👾
                         </span>
                     </a>
-                    <a href="https://itch.io" target="_blank" class="grid-card">
-                        <img src="images/Party.png" alt="Deadline On The Line">
+
+                    <a
+                        href="https://itch.io"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="grid-card"
+                    >
+                        <img src="images/Party.png" alt="Party Crashers">
                         <span class="card-label">
                             Play Party Crashers 👾
                         </span>
                     </a>
-                    <a href="https://itch.io" target="_blank" class="grid-card">
-                        <img src="gifs/projectmiro.gif" alt="Deadline On The Line">
+
+                    <a
+                        href="https://itch.io"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="grid-card"
+                    >
+                        <img src="gifs/projectmiro.gif" alt="Project Miro">
                         <span class="card-label">
-                            Play Project Miro: It's For Research We Swear! 👾
+                            Play Project Miro 👾
                         </span>
                     </a>
-                    <a href="https://itch.io" target="_blank" class="grid-card">
-                        <img src="gifs/tilloursocial.gif" alt="Deadline On The Line">
+
+                    <a
+                        href="https://itch.io"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="grid-card"
+                    >
+                        <img src="gifs/tilloursocial.gif" alt="Till Our Social Deaths Do Us Part">
                         <span class="card-label">
                             Play Till Our Social Deaths Do Us Part 👾
                         </span>
                     </a>
 
-                    
-
                 </div>
-            </div>
-            <p>
 
+            </section>
 
+            <!-- ART SECTION -->
 
-            </p>
-            <div class="portfolio-split">
-                <div class="portfolio-text" style="border: 1px solid #ffcac2; border-radius: 8px; padding: 10px;">
-                    ART STUFF
+            <section class="portfolio-split">
+
+                <div class="portfolio-text">
+                    <h2>✦ My Art</h2>
+                    <p>
+                        This section features some of my artwork, including illustrations, animations, and pixel art. I enjoy experimenting with colors, character designs, different art styles, and visual storytelling. Each piece represents my creativity and growth as an artist.
+                    </p>
+                    <p>
+                        ~
+˚　　　　✦　　　.　　. 　 ˚　.　　　　　 . ✦　　　 　˚　　　　 . ★⋆. ࿐࿔ 
+　　　.   　　˚　　 　　. 　 ˚　.　　 *　　. 　 ˚　.　˚　　. 　 　.　　. 　 　.　.　*　　. 　 ˚　.　　.　　. 　 ˚　.　　. 　 ˚　　　* 　　.　. 　 ˚　.　　* 　　.　*　. 　 ˚
+                    </p>
                 </div>
-                <div class="image-grid" style="border: 1px solid #ffcac2; border-radius: 8px; padding: 10px;">
-                    <a href="gifs/myart.gif" target="_blank" class="grid-card">
-                        <img src="gifs/myart.gif" alt="My artwork">
+
+                <div class="image-grid">
+
+                    <a
+                        href="gifs/myart.gif"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="grid-card"
+                    >
+                        <img src="gifs/myart.gif" alt="Animation artwork">
                         <span class="card-label">
                             View Full Art: Animation
                         </span>
                     </a>
 
-                    <a href="images/out of reach.png" target="_blank" class="grid-card">
-                        <img src="imagess/out of reach.png" alt="My piece of art">
-
+                    <a
+                        href="images/out of reach.png"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="grid-card"
+                    >
+                        <img src="images/out of reach.png" alt="Illustration artwork">
                         <span class="card-label">
                             View Full Art: Illustration
                         </span>
                     </a>
-                    <a href="images/out of reach.png" target="_blank" class="grid-card">
-                        <img src="images/unknown.png" alt="My piece of art">
 
+                    <a
+                        href="images/unknown.png"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="grid-card"
+                    >
+                        <img src="images/unknown.png" alt="Pixel artwork">
                         <span class="card-label">
                             View Full Art: Pixel Art
                         </span>
                     </a>
+                    <a
+                        href="https://vgen.co/hapicoil"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="grid-card vgen-card"
+                    >
+                        <img src="gifs/bg.gif" alt="My VGen portfolio">
+
+                        <span class="card-label">
+                            Interested in seeing more? Here's my VGen Portfolio!
+                        </span>
+                    </a>
+
                 </div>
 
-            </div>
-        </div>
-    </div>
+            </section>
 
-    <div class="footer">
-        <p style="color: white;">
+        </section>
+
+    </main> 
+
+    <footer class="footer">
+        <p>
             This website is for personal and academic use only.
             All assets that are not made by me are the property of their respective owners.
         </p>
-    </div>
+    </footer>
 
 </body>
 </html>

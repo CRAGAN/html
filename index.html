@@ -7,26 +7,28 @@
 
     <style>
         @font-face {
-            font-family: 'AtlantisInternational-jen0';
-            src: url('AtlantisInternational-jen0.ttf') format('truetype');
+            font-family: "AtlantisInternational";
+            src: url("AtlantisInternational-jen0.ttf") format("truetype");
             font-weight: normal;
             font-style: normal;
         }
 
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'AtlantisInternational-jen0', Arial, sans-serif;
+            font-family: "AtlantisInternational", Arial, sans-serif;
             margin: 0;
-            padding: 40px 20px;
-            background-image: url('gifs/bg2.gif');
+            padding: 0 20px 40px;
+            background-image: url("gifs/bg2.gif");
             background-repeat: no-repeat;
             background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             background-color: #f4f4f9;
-
-            /* Glitch effect when the page loads */
-            animation: 
-                glitchPage 0.8s ease-out, 
-              
-            
+            cursor: url("images/cursor (2).cur"), auto;
+            animation: glitchPage 0.8s ease-out;
         }
 
         @keyframes glitchPage {
@@ -72,53 +74,41 @@
                 filter: none;
             }
         }
+
         @keyframes bounceAnimation {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
+            0%, 100% {
+                transform: translateY(0);
             }
 
-        .element {
-            animation-name: bounceAnimation;
-            animation-duration: 5s;
-            animation-timing-function: ease;
-            animation-delay: 1.0s;
-            animation-iteration-count: infinite;
-            animation-direction: normal;
-            animation-fill-mode: both;
+            50% {
+                transform: translateY(-5px);
+            }
         }
+
         .blur-bar {
-            position: absolute; 
-            top: 0;
-            left: 0;
+            position: relative;
             width: 100%;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            padding: 10px 2px;
-            box-sizing: border-box;
-            
-            /* The Blur Effect */
-            background-color: rgba(59, 76, 150, 0.319); 
-            backdrop-filter: blur(12px);                 
-                
-            
-            
-            border-image: linear-gradient(to right, rgba(29, 69, 173, 0.333), rgba(255,255,255,0.3), rgba(255,255,255,0)) 1;
+            padding: 20px;
+            background-color: rgba(31, 53, 150, 0.319);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(185, 255, 254, 0.7);
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-         
-            margin-bottom: 50px;
         }
 
         h1 {
             color: #fbfbff;
-            margin-bottom: 20px;
-            text-shadow: 3px 3px 0px #0b143fa0;
+            margin: 0;
+            text-align: center;
+            text-shadow: 3px 3px 0 #0b143f;
         }
 
         .window-container {
-            max-width: 900px;
-            margin: 0 auto;
-            animation: bounceAnimation 5s ease 1.0s infinite;
+            max-width: 1200px;
+            margin: 100px auto 0;
+            animation: bounceAnimation 5s ease 1s infinite;
         }
 
         nav {
@@ -136,7 +126,7 @@
             border-top-right-radius: 8px;
             border: 1px solid rgba(185, 255, 254, 0.743);
             border-bottom: none;
-            transition: background 0.2s;
+            transition: background-color 0.2s ease;
         }
 
         nav a:hover,
@@ -156,9 +146,13 @@
 
         .grid-container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 25px;
             color: white;
+        }
+
+        .grid-column {
+            min-width: 0;
         }
 
         .grid-column h2 {
@@ -172,13 +166,44 @@
             margin-bottom: 12px;
         }
 
+        .profile-column {
+            border: 1px solid #c2f6ff;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .profile-image {
+            width: 165px;
+            height: 195px;
+            object-fit: cover;
+            border-radius: 20%;
+            border: 2px solid #bfe9d7;
+            display: block;
+            margin: 0 auto 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .social-icons img {
+            width: 30px;
+            height: 30px;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 10px;
+        }
+
         .message-box-container {
             background-color: rgba(33, 50, 127, 0.44);
-            border: 2px solid #adfff4c6;
+            border: 2px solid #adfff4;
             padding: 20px;
             border-radius: 5px;
             color: white;
-            max-width: 400px;
             margin-top: 20px;
         }
 
@@ -195,57 +220,91 @@
             margin-top: 5px;
             border: 1px solid #cccccc;
             border-radius: 3px;
-            box-sizing: border-box;
-            background-color: #413b8e3d;
+            background-color: rgba(65, 59, 142, 0.24);
             color: #d0fffd;
+            font-family: inherit;
+        }
+
+        .guestbook-form textarea {
+            resize: vertical;
         }
 
         .guestbook-form button {
             margin-top: 15px;
-            background-color: #21267f7b;
+            background-color: rgba(33, 38, 127, 0.48);
             color: white;
             border: 1px solid white;
             padding: 10px 15px;
             cursor: pointer;
             border-radius: 3px;
             width: 100%;
+            font-family: inherit;
         }
 
         .guestbook-form button:hover {
-            background-color: #2e54ab92;
+            background-color: rgba(46, 84, 171, 0.57);
         }
 
-        .footer {
+        footer {
+            background-color: rgba(46, 75, 109, 0.25);
+            backdrop-filter: blur(4px);
+            padding: 20px;
+            border-radius: 5px;
+            color: white;
+            margin: 20px auto 0;
+            max-width: 1200px;
             text-align: center;
-            margin-top: 20px;
-        }
-        @keyframes sbounceAnimation {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(50px); }
         }
 
-        .element {
-            animation-name: bounceAnimation;
-            animation-duration: 0.6s;
-            animation-timing-function: ease;
-            animation-delay: 2.9s;
-            animation-iteration-count: infinite;
-            animation-direction: normal;
-            animation-fill-mode: both;
+        footer h3 {
+            margin: 0;
+            font-size: 1rem;
+            line-height: 1.5;
         }
-   
+
+        @media (max-width: 850px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+
+            .window-container {
+                margin-top: 60px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            body {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .blur-bar {
+                padding: 15px 10px;
+            }
+
+            h1 {
+                font-size: 1.4rem;
+            }
+
+            .window-body {
+                padding: 18px;
+            }
+
+            nav {
+                padding-left: 0;
+                flex-wrap: wrap;
+            }
+        }
     </style>
 </head>
-<header class="blur-bar" style="padding: 40px;" >
-    <h1>Olive's Personal Website</h1>
-</header>
-
 
 <body>
 
-   
-    
-    <div class="window-container" style="margin-top: 150px;">
+    <header class="blur-bar">
+        <h1>⋆˙⟡ ⋆.˚ ⊹₊⟡ ⋆ Olive's Personal Website ⋆˙⟡ ⋆.˚ ⊹₊⟡ ⋆</h1>
+    </header>
+
+    <main class="window-container">
 
         <nav>
             <a href="index.html" class="active">Home</a>
@@ -253,7 +312,7 @@
             <a href="about.html">About Me</a>
         </nav>
 
-        <div class="window-body">
+        <section class="window-body">
 
             <div class="grid-container">
 
@@ -261,69 +320,105 @@
                     <h2>Welcome to my website</h2>
 
                     <p>
-                        This is my first website using HTML.
+                        Welcome to my personal website! I’m Olive, an aspiring artist and game developer who enjoys creating stories, artwork, and interactive experiences. This website is a collection of my projects, interests, and creative work. Feel free to explore the different pages and learn more about me and the things I create.
                     </p>
+
+                
                 </div>
 
-                <div class="grid-column" style="border: 1px solid #c2f6ff; border-radius: 8px; padding: 10px;">
-                    <img src="images/me.png" alt="Myself" width="165" height="195" style="border-radius: 20%; border: 2px solid #bfe9d7fc; display: block; margin: 0 auto;">
+                <div class="grid-column profile-column">
+                    <img
+                        src="images/me.png"
+                        alt="A picture of Olive"
+                        class="profile-image"
+                    >
 
-                    <p>
-                        Here you can find information about me and my projects.
+                    <p style="border: 1px solid #adfff4; margin-left: -21px; margin-right: -21px; text-align: center;">
+                           PROGRAMMER ⋆⟢ ARTIST ⋆⟢ ILLUSTRATOR
                     </p>
 
                     <p>
-                        
                         Feel free to explore and contact me if you have any questions.
                     </p>
 
-                    
-                    <audio controls autoplay loop>
+                    <audio controls loop>
                         <source src="Working Overtime 2m.mp3" type="audio/mpeg">
-                        
+                        Your browser does not support the audio element.
                     </audio>
+
                     <h2>Socials</h2>
-                    <h3>Contact Me</h3>
+                    
 
                     <p>
                         Email: hapicoil653@gmail.com
                     </p>
 
-                    <p>
-                    <a href="https://codedcheese.itch.io" target="_blank"><img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/itch-io.png" alt="itch-io"/></a> <a href="https://www.instagram.com/oliv_oil15/" target="_blank"><img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/instagram-new.png" alt="instagram-new"/></a> <a href="https://www.youtube.com/channel/UCk8r3JZ6z9X5X5X5X5X5X5X5" target="_blank"><img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/youtube-play.png" alt="youtube-play"/></a> <a href="https://www.tiktok.com/@hapicoil" target="_blank"><img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/tiktok.png" alt="tiktok"/></a> <a href="https://pixelstar.io/@hapicoil" target="_blank"><img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/pixel-star.png" alt="pixel-star"/></a>
-                    </p>
+                    <div class="social-icons">
+                        <a href="https://codedcheese.itch.io" target="_blank">
+                            <img
+                                src="https://img.icons8.com/ios-glyphs/30/FFFFFF/itch-io.png"
+                                alt="Itch.io"
+                            >
+                        </a>
 
+                        <a href="https://www.instagram.com/oliv_oil15/" target="_blank">
+                            <img
+                                src="https://img.icons8.com/ios-glyphs/30/FFFFFF/instagram-new.png"
+                                alt="Instagram"
+                            >
+                        </a>
+
+                        <a href="https://www.youtube.com/@Oilhapi" target="_blank">
+                            <img
+                                src="https://img.icons8.com/ios-glyphs/30/FFFFFF/youtube-play.png"
+                                alt="YouTube"
+                            >
+                        </a>
+
+                        <a href="https://www.tiktok.com/@cra1g0ry_?is_from_webapp=1&sender_device=pc" target="_blank">
+                            <img
+                                src="https://img.icons8.com/ios-glyphs/30/FFFFFF/tiktok.png"
+                                alt="TikTok"
+                            >
+                        </a>
+
+                        <a href="https://vgen.co/hapicoil" target="_blank">
+                            <img
+                                src="https://img.icons8.com/ios-glyphs/30/FFFFFF/pixel-star.png"
+                                alt="PixelStar"
+                            >
+                        </a>
+                    </div>
                 </div>
 
                 <div class="grid-column">
-                    <p>
-                        Background art by: a-confused-dragon
-                    </p>
-
-                   
                     <div class="message-box-container">
                         <h3>Leave a Message!</h3>
 
                         <form
                             action="https://formspree.io/f/xbggqear"
                             method="POST"
-                            class="guestbook-form">
-
+                            class="guestbook-form"
+                        >
                             <label for="name">Your Name:</label>
+
                             <input
                                 type="text"
                                 id="name"
                                 name="name"
                                 placeholder="Nobody"
-                                required>
+                                required
+                            >
 
                             <label for="message">Message:</label>
+
                             <textarea
                                 id="message"
                                 name="message"
                                 rows="4"
                                 placeholder="Interested in commissioning me or just want to say hi? Send me a message!"
-                                required></textarea>
+                                required
+                            ></textarea>
 
                             <button type="submit">Submit!</button>
                         </form>
@@ -331,18 +426,18 @@
                 </div>
 
             </div>
-        </div>
-    </div>
 
-    <footer style="background-color: #2e4b6d41; backdrop-filter: blur(4px); align-items: center;  padding: 20px; border-radius: 5px; color: white; margin-top: 20px; postion: fixed;  width: 100%;">
+        </section>
+
+    </main>
+
+    <footer>
         <h3>
             This website is for personal and academic use only.
             All assets that are not made by me are the property of their
             respective owners.
         </h3>
     </footer>
-    
 
 </body>
-
 </html>
